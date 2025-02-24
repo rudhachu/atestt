@@ -17,7 +17,7 @@ module.exports = {
   KOYEB_APP_NAME: process.env.KOYEB_APP_NAME,
   VPS: toBool(process.env.VPS || "true"),
   PORT: process.env.PORT || 3069,
-  GEMINI_KEY: process.env.GEMINI_KEY || "AIzaSyCZIqhWvQZ54K2Bjk418vbg7kO6zichY6c",
+  GEMINI_KEY: process.env.GEMINI_KEY || " ",
   REPO: "rudhachu/atestt",
   TZ: process.env.TZ || "Africa/lagos", // leave if you don't know what you're doing
   REJECT_CALL: toBool(process.env.REJECT_CALL || "false"),
