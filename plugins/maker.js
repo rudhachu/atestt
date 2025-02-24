@@ -28,26 +28,3 @@ Alpha({
           },'audio');
       }
   })
-Alpha({
-  pattern: 'emix',
-  desc: lang.GENERAL.EMIX_DESC,
-  react: "🤌",
-  fromMe: mode,
-  type: "maker"
-}, async (message, match) => {
-  if (!match) return message.send(lang.GENERAL.NEED_EMOJI.format("emix"));
-  if (!match.includes(/[|,;]/)) return message.send(lang.GENERAL.NEED_EMOJI.format("emix"));
-  let emoji1, emoji2;
-  if (match.includes(/[|,;]/)) {
-      let split = match.split(/[|,;]/);
-      emoji1 = split[0];
-      emoji2 = split[1];
-  }
-  let md = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
-  for (let res of md.results) {
-      return await message.sendSticker(message.jid, res.url, {
-              packname: config.STICKER_DATA.split(/[|,;]/)[0] || config.STICKER_DATA,
-              author: config.STICKER_DATA.split(/[|,;]/)[1]
-      });
-  }
-})
